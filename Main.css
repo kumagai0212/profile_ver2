@@ -1,0 +1,188 @@
+.container { /*disp_img1とprofileの親クラスで幅を一括管理*/
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 20%;
+    gap: 100px;
+    width: 100%;
+    height: 80vh;
+}
+
+.disp_img1{
+width: 300px;
+height: auto;
+object-fit: cover;
+}
+
+.profile{
+    max-width: 400px;
+}
+
+.background .gakureki .word .columns{
+    padding: 10px 0px;
+    max-width: 400px;
+    border-top: 1px solid #2a2828;
+}
+
+.background .gakureki .word .date{
+    margin: 0;
+    min-width: 120px;
+    font-size: 16px;
+    color: #999;
+}
+
+.background .gakureki .word .title{
+    margin: 0;
+    width: 100%;
+}
+
+
+
+.intro{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    top: 800px;
+    width: 100%;
+}
+
+h1 {
+    line-height: 2.0;
+    background-color: aliceblue;
+    position:fixed;
+    margin:auto;
+    top: 0;
+    width: 100vw;
+    height: 60px;
+    z-index: 15;
+}
+
+.pagetop{
+    text-align: center;
+    position: relative;
+    top: 1300px;
+}
+.timeline {
+    position: relative; /* absoluteをやめてrelativeにする */
+    margin-top: 80%; /* 上方向に150pxの余白 */
+    display: flex;
+    justify-content: center; /* 水平方向に中央寄せ */
+}
+
+.timeline .twitter-timeline {
+    width: 500px !important; /* 幅を固定 */
+    height: 600px !important;
+    max-width: 100%; /* 必要なら残す */
+    border: 1px solid #333;
+    padding: 10px;
+}
+
+
+h2{
+    position: relative;
+    top: 920px;
+    text-align: center;
+    margin: 0;
+}
+
+.news-list{
+    position: absolute;
+    top:1100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    list-style: none outside;
+    margin: 0;
+    padding: 0;
+}
+  .news-list .item a{
+    display: flex;
+    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #CCC;
+    padding: 20px 20px;
+  }
+  .news-list .item:first-child a{
+    border-top: 1px solid #CCC;
+}
+  .news-list .item .date{
+    margin: 3;
+    min-width: 120px;
+    font-size: 16px;
+    color: #999;
+    padding: 0 20px 0 0;
+}
+  .news-list .item .title{
+    margin: 0;
+    width: 100%;
+}
+.news-list .item a:hover .title{
+    color: #00F;
+  }
+
+
+@media (max-width: 600px){
+        .container{
+            display: flex;
+            justify-content: center; /* 中央寄せ */
+            flex-direction: column; 
+        }
+        .disp_img1 img{
+            position: absolute;
+            top: 80px;
+            width: 100%;
+        }
+    
+        .profile{
+            position: absolute;
+            top: 1000px;
+        }
+    
+        .intro{
+            text-align: center;
+            display: flex;
+            justify-content: center; /* 中央寄せ */
+            margin-top: 1100px;
+        }
+    
+        .timeline {
+            display: flex;
+            justify-content: center; /* 中央寄せ */
+            position:relative;
+            top: 1600px;
+        }
+    
+        .timeline .twitter-timeline {
+            width: 100% !important; /* スマホでも画面いっぱいに */
+            height: 500px !important;
+        }
+    
+        #windowscroll {
+            position: relative; /* 親要素にrelativeを指定 */
+        }
+    
+        #windowscroll h2 { /*idの変更は絶対*/
+            position: absolute; /* 絶対位置を相対位置に変更 */
+            top: 2100px; /* 位置を調整 */
+            left: 50%; /* 横方向中央寄せ */
+            transform: translateX(-50%); /* 幅の半分を左に移動 */
+        }
+    
+        #windowscroll .news-list {
+            text-align: center;
+            position: relative; /* 相対位置 */
+            top: 2300px
+        }
+    
+        .pagetop{
+            display: flex;
+            justify-content: center; /* 中央寄せ */
+            position:relative;
+            top: 1900px;
+        }
+}
