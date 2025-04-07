@@ -44,7 +44,7 @@ object-fit: cover;
     justify-content: center;
     align-items: center;
     position:absolute;
-    top: 800px;
+    top: 80%;
     width: 100%;
 }
 
