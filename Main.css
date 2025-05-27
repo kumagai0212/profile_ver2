@@ -1,187 +1,329 @@
-.container { /*disp_img1とprofileの親クラスで幅を一括管理*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 100px;
-    width: 100%;
-    padding-top: 140px; /* ヘッダー分のスペース */
-}
-
-.disp_img1{
-width: 100%;
-max-width: 300px;
-height: auto;
-object-fit: cover;
-}
-
-.profile{
-    max-width: 400px;
-}
-
-.background .gakureki .word .columns{
-    padding: 10px 0px;
-    max-width: 400px;
-    border-top: 1px solid #2a2828;
-}
-
-.background .gakureki .word .date{
-    margin: 0;
-    min-width: 120px;
-    font-size: 16px;
-    color: #999;
-}
-
-.background .gakureki .word .title{
-    margin: 0;
-    width: 100%;
-}
-
-
-
-.intro{
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-top: 0px;
-}
-
-h1 {
-    line-height: 2.0;
-    background-color: aliceblue;
-    position:fixed;
-    margin:auto;
-    top: 0;
-    width: 100vw;
-    height: 60px;
-    z-index: 15;
-}
-
-.pagetop{
-    text-align: center;
-    position: relative;
-    top: 1300px;
-}
-.timeline {
-    position: relative; /* absoluteをやめてrelativeにする */
-    margin-top: 80%; /* 上方向に150pxの余白 */
-    display: flex;
-    justify-content: center; /* 水平方向に中央寄せ */
-}
-
-.timeline .twitter-timeline {
-    width: 500px !important; /* 幅を固定 */
-    height: 600px !important;
-    max-width: 100%; /* 必要なら残す */
-    border: 1px solid #333;
-    padding: 10px;
-}
-
-
-h2{
-    position: relative;
-    top: 0px;
-    text-align: center;
-    margin: 0;
-}
-
-.news-list{
-    position: absolute;
-    top:1100px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    list-style: none outside;
+/* Basic Reset & General Styles */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-  .news-list .item a{
-    display: flex;
-    flex-wrap: wrap;
-    flex-wrap: nowrap;
-    text-decoration: none;
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7f6; /* Light grey background */
     color: #333;
-    border-bottom: 1px solid #CCC;
-    padding: 20px 20px;
-  }
-  .news-list .item:first-child a{
-    border-top: 1px solid #CCC;
+    padding-top: 80px; /* Adjust based on fixed header height */
 }
-  .news-list .item .date{
-    margin: 3;
-    min-width: 120px;
-    font-size: 16px;
-    color: #999;
-    padding: 0 20px 0 0;
+
+h1, h2, h3 {
+    font-weight: normal;
 }
-  .news-list .item .title{
+
+h1 { /* Fixed Header */
+    background-color: #2c3e50; /* Dark blue-grey */
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto; /* Auto height based on content */
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-content-wrapper { /* New wrapper for content below header */
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.section-card {
+    background-color: #ffffff;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Profile Section */
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    gap: 40px; /* Increased gap */
+    width: 100%;
+    margin-bottom: 30px; /* Add margin to separate from next section */
+}
+
+.disp_img1 {
+    flex-basis: 300px; /* Suggest a base width */
+    flex-grow: 0; /* Don't grow */
+    flex-shrink: 0; /* Don't shrink beyond base */
+}
+
+.disp_img1 img {
+    width: 100%;
+    max-width: 300px; /* Ensure image is not overly large */
+    height: auto;
+    border-radius: 8px; /* Rounded corners for image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+.profile {
+    flex-basis: 500px; /* Suggest a base width */
+    flex-grow: 1;
+    max-width: 100%; /* Allow shrinking */
+}
+
+.profile ul.background {
+    list-style: none;
+}
+
+.profile ul.background > li {
+    margin-bottom: 20px;
+}
+
+.profile h3 {
+    font-size: 1.5em;
+    color: #2c3e50; /* Header color */
+    margin-bottom: 10px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 5px;
+}
+
+.profile p, .profile .gakureki .title {
+    font-size: 1em;
+    color: #555;
+}
+
+.profile .background .gakureki {
+    list-style: none;
+}
+
+.background .gakureki .word {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee; /* Lighter border */
+}
+.background .gakureki .word:last-child {
+    border-bottom: none;
+}
+
+.background .gakureki .word .columns {
+    display: flex;
+    align-items: baseline; /* Align date and title better */
+}
+
+.background .gakureki .word .date {
+    min-width: 100px; /* Slightly reduced width */
+    font-size: 0.9em;
+    color: #777;
+    margin-right: 20px;
+}
+
+.background .gakureki .word .title {
     margin: 0;
     width: 100%;
 }
-.news-list .item a:hover .title{
-    color: #00F;
-  }
 
+/* Introduction Section */
+.intro {
+    text-align: left; /* Align text to left for readability */
+    line-height: 1.8;
+}
 
-@media (max-width: 780px){
+.intro div {
+    font-size: 1.1em;
+}
 
-        .container{
-            display: flex;
-            justify-content: center; /* 中央寄せ */
-            flex-direction: column; 
-        }
-        .disp_img1 img{
-            position: absolute;
-            top: 80px;
-            width: 100%;
-        }
-    
-        .profile{
-            position: absolute;
-            top: 1000px;
-        }
-    
-        .intro{
-            text-align: center;
-            display: flex;
-            justify-content: center; /* 中央寄せ */
-            margin-top: 1100px;
-        }
-    
-        .timeline {
-            display: flex;
-            justify-content: center; /* 中央寄せ */
-            position:relative;
-            top: 1600px;
-        }
-    
-        .timeline .twitter-timeline {
-            width: 100% !important; /* スマホでも画面いっぱいに */
-            height: 500px !important;
-        }
-    
-        #windowscroll {
-            position: relative; /* 親要素にrelativeを指定 */
-        }
-    
-        #windowscroll h2 { /*idの変更は絶対*/
-            position: absolute; /* 絶対位置を相対位置に変更 */
-            top: 2100px; /* 位置を調整 */
-            left: 50%; /* 横方向中央寄せ */
-            transform: translateX(-50%); /* 幅の半分を左に移動 */
-        }
-    
-        #windowscroll .news-list {
-            text-align: center;
-            position: relative; /* 相対位置 */
-            top: 2300px
-        }
-    
-        .pagetop{
-            display: flex;
-            justify-content: center; /* 中央寄せ */
-            position:relative;
-            top: 2000px;
-        }
+/* News Section */
+#windowscroll { /* Consider renaming to .news-section */
+    /* No absolute positioning needed if it's a section-card */
+}
+
+#windowscroll h2 {
+    text-align: center;
+    font-size: 1.8em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    text-decoration-color: #7f8c8d;
+    text-underline-offset: 5px;
+}
+
+.news-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.news-list .item {
+    background-color: #f9f9f9; /* Light background for each item */
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.news-list .item:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+}
+
+.news-list .item .date {
+    display: block; /* Make date a block element or use flex */
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.news-list .item .title {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Page Top Button */
+.pagetop {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px; /* Add some space above */
+}
+
+.pagetop a {
+    display: inline-block;
+    background-color: #3498db; /* A nice blue */
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.pagetop a:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) { /* Tablet and smaller */
+    body {
+        padding-top: 70px; /* Adjust for potentially smaller header */
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        gap: 30px;
+    }
+
+    .disp_img1, .profile {
+        flex-basis: auto; /* Reset flex-basis */
+        width: 100%; /* Full width for stacked items */
+        max-width: 500px; /* Limit max width on smaller screens too */
+    }
+
+    .profile {
+        margin-top: 0; /* Remove top margin if image is above */
+    }
+
+    #windowscroll h2 {
+        font-size: 1.6em;
+    }
+}
+
+@media (max-width: 600px) { /* Smartphone */
+    body {
+        padding-top: 60px; /* Further adjust for header */
+    }
+    .main-content-wrapper {
+        margin: 10px auto;
+        padding: 0 15px;
+    }
+
+    .section-card {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .disp_img1 img {
+        max-width: 100%; /* Allow image to be full width of its container */
+    }
+
+    .profile h3 {
+        font-size: 1.3em;
+    }
+
+    .background .gakureki .word .columns {
+        flex-direction: column; /* Stack date and title */
+        align-items: flex-start;
+    }
+    .background .gakureki .word .date {
+        margin-bottom: 5px;
+    }
+
+    .intro div {
+        font-size: 1em;
+    }
+
+    #windowscroll h2 {
+        font-size: 1.4em;
+    }
+
+    .news-list .item {
+        padding: 10px 15px;
+    }
+    .news-list .item .title {
+        font-size: 1em;
+    }
+}
+
+/* Legacy timeline styles - review if still needed or how they fit */
+.timeline {
+    /* position: relative; */ /* Already set */
+    /* margin-top: 80%; */ /* This seems very large and arbitrary, review */
+    display: flex;
+    justify-content: center;
+    padding: 20px 0; /* Add some padding */
+}
+
+.timeline .twitter-timeline {
+    width: 100% !important; /* Allow responsiveness */
+    max-width: 500px !important; /* But cap it */
+    height: 600px !important;
+    border: 1px solid #ccc; /* Lighter border */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+@media (max-width: 600px){
+    .timeline {
+        /* Adjustments for timeline on small screens if necessary */
+        /* top: 1600px; */ /* Avoid large fixed top values */
+    }
+    .timeline .twitter-timeline {
+        height: 500px !important;
+    }
+
+    /* The following absolute positioning for news on small screens should be avoided
+       if using the section-card approach. The news section will flow naturally.
+       If you keep #windowscroll outside .main-content-wrapper and .section-card,
+       these might need adjustments, but it's better to integrate it.
+    */
+    /*
+    #windowscroll h2 {
+        position: absolute;
+        top: 2100px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #windowscroll .news-list {
+        position: relative;
+        top: 2300px;
+    }
+    */
 }
