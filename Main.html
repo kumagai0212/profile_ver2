@@ -68,22 +68,140 @@
                 ハードウェアに関する知識を増やせるよう日々勉強中です。</div>
             </section>
 
-            <section id="news-section" class="section-card"> <!--{/* Renamed and made a section-card */}-->
-                <h2 style="text-align: center;"><u>お知らせ(News)</u></h2>
-                <ul class="news-list">
-                    <li class="item">
-                        <p class="date">2025/7/03</p>
-                        <p class="title">応用情報技術者試験に合格しました</p>
-                    </li>
-                    <li class="item">
-                        <p class="date">2024/7/12</p>
-                        <p class="title">基本情報技術者試験に合格しました。</p>
-                    </li>
-                    <li class="item">
-                        <p class="date">2024/4/3</p>
-                        <p class="title">東京工業大学情報工学系に3年次編入しました。</p>
-                    </li>
-                </ul>
+            <section id="publications-section" class="section-card">
+                <h2 style="text-align: center;"><u>研究業績 (Publications)</u></h2>
+                
+                <div class="publication-item" style="margin-top: 30px; display: flex; flex-wrap: wrap; gap: 20px;">
+                    <div class="content-img">
+                        <img src="bcar-structure-side.JPG" alt="Robbit Image">
+                    </div>
+
+                    <div class="content-desc">
+                        <h3>Robbit: A User-Friendly and Two-Wheeled Self-Balancing Robot Using an FPGA</h3>
+                        <p class="conference" style="color: #555; font-style: italic;">
+                            2025 IEEE 18th International Symposium on Embedded Multicore/Many-core Systems-on-Chip (MCSoC)
+                        </p>
+                        <p class="authors" style="color: #777; margin: 5px 0;">
+                            Daichi Kumagai, Yuya Iwata, Komei Kodera, Kenji Kise
+                        </p>
+                        <p class="abstract" style="margin: 10px 0; font-size: 0.95em; line-height: 1.6;">
+                            <strong>概要:</strong> FPGAを用いた低コストでユーザーフレンドリーな二輪倒立振子ロボット「robbit」の提案。
+                            RISC-VソフトコアプロセッサとCFU Proving Groundフレームワークを活用し、ハードウェア・ゲートウェア・ソフトウェアの協調設計を学習できる教育用プラットフォームとして設計・実装を行いました。
+                        </p>
+                        <div class="links" style="margin-top: 15px;">
+                            <a href="https://doi.org/10.1109/MCSOC67473.2025.00041" class="btn-link" target="_blank">Publisher Link (DOI)</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects-section" class="section-card">
+                <h2 style="text-align: center;"><u>制作物 (Projects)</u></h2>
+                
+                <div class="project-item" style="margin-top: 30px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                    <h3>FPGA Piano Tiles</h3>
+                    <div class="project-content" style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 15px;">
+                        
+                        <div class="content-img">
+                            <img src="fpga_piano.jpg" alt="FPGA Piano Tiles Image">
+                        </div>
+                        
+                        <div class="content-desc">
+                            <ul class="tech-stack" style="list-style: none; padding: 0; margin-bottom: 10px; font-size: 0.9em; color: #555;">
+                                <li><strong>Device:</strong> Digilent Arty A7-35T</li>
+                                <li><strong>Language:</strong> Verilog HDL</li>
+                                <li><strong>Peripherals:</strong> ST7789 (240x240 LCD), Tactile Buttons</li>
+                            </ul>
+                            <p>
+                                FPGAボード上で動作するリズムゲーム（ピアノタイル）です。
+                                4つのレーンから落下してくるノーツに合わせて、タイミングよく対応するボタンを押すゲームシステムを実装しました。
+                            </p>
+                            <p style="margin-top: 10px;">
+                                <strong>技術的特徴:</strong>
+                                プロセッサを使用せず、すべてのロジックをハードウェア記述言語（Verilog）で実装しています。
+                                擬似乱数生成器（32-bit Xorshift）によるランダムなノーツ生成、SPI通信によるLCDへの描画制御、
+                                およびビデオメモリ（VRAM）の管理回路を独自に設計しました。
+                                進行に応じて落下速度が上昇する動的な難易度調整機能も備えています。
+                            </p>
+                            <div class="links" style="margin-top: 15px;">
+                                <a href="https://github.com/kumagai0212/piano-fpga" class="btn-link" target="_blank">GitHub Repository</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience-section" class="section-card">
+                <h2 style="text-align: center;"><u>職歴 (Experience)</u></h2>
+                
+                <div class="experience-item" style="margin-top: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+                        <div style="display: flex; align-items: baseline; gap: 10px;">
+                            <h3 style="margin-bottom: 5px;">Aratama Factory</h3>
+                            <a href="https://aratama-factory.com/" target="_blank" style="font-size: 0.9em; color: #3498db; text-decoration: none;">
+                                <span style="text-decoration: underline;">Website</span> ↗
+                            </a>
+                        </div>
+                        <span style="color: #777; font-size: 0.9em;">2025/5 - 現在</span>
+                    </div>
+                    <p style="color: #555; font-weight: bold; margin-bottom: 10px;">FPGA開発エンジニア（アルバイト）</p>
+                    
+                    <p style="line-height: 1.6;">
+                        FPGAを用いたハードウェア開発業務に従事しています。<br>
+                        業務の詳細は非公開ですが、主に以下の技術領域に関する開発・設計を行っています。
+                    </p>
+                    
+                    <div style="margin-top: 15px; background-color: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px solid #eee;">
+                        <p style="font-weight: bold; color: #2c3e50; margin-bottom: 8px;">使用技術・スキル:</p>
+                        <ul style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px;">
+                            <li class="skill-tag">FPGA開発</li>
+                            <li class="skill-tag">ディジタル回路設計</li>
+                            <li class="skill-tag">ビームフォーミング</li>
+                            <li class="skill-tag">プロンプトエンジニアリング</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills-section" class="section-card">
+                <h2 style="text-align: center;"><u>技術スタック (Skills)</u></h2>
+                
+                <div class="skills-container" style="margin-top: 25px; display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-around;">
+                    
+                    <div class="skill-category" style="flex: 1 1 250px;">
+                        <h3 style="border-bottom: 2px solid #eee; padding-bottom: 5px; margin-bottom: 15px; color: #2c3e50; font-size: 1.2em;">Languages</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li class="skill-item">Verilog HDL</li>
+                            <li class="skill-item">SystemVerilog</li>
+                            <li class="skill-item">C / C++</li>
+                            <li class="skill-item">Python</li>
+                            <li class="skill-item">HTML / CSS</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category" style="flex: 1 1 250px;">
+                        <h3 style="border-bottom: 2px solid #eee; padding-bottom: 5px; margin-bottom: 15px; color: #2c3e50; font-size: 1.2em;">Hardware & FPGA</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li class="skill-item">Xilinx Artix-7 (Arty, Cmod)</li>
+                            <li class="skill-item">RISC-V Architecture</li>
+                            <li class="skill-item">Digital Circuit Design</li>
+                            <li class="skill-item">High-Level Synthesis (HLS)</li>
+                            <li class="skill-item">I2C / SPI / UART</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category" style="flex: 1 1 250px;">
+                        <h3 style="border-bottom: 2px solid #eee; padding-bottom: 5px; margin-bottom: 15px; color: #2c3e50; font-size: 1.2em;">Tools & Others</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li class="skill-item">Vivado / Vitis</li>
+                            <li class="skill-item">Git / GitHub</li>
+                            <li class="skill-item">Visual Studio Code</li>
+                            <li class="skill-item">LaTeX</li>
+                            <li class="skill-item">Linux</li>
+                        </ul>
+                    </div>
+                    
+                </div>
             </section>
 
             </div> <!--{/* End of main-content-wrapper */}-->

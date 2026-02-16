@@ -327,3 +327,101 @@ h1 { /* Fixed Header */
     }
     */
 }
+
+/* --- 追加スタイル --- */
+
+/* コンテンツ（論文・制作物）のレイアウト */
+.content-img {
+    flex: 0 0 300px;      /* 画像エリアの幅として300pxを確保 */
+    max-width: 100%;
+    display: flex;        /* 画像をエリア内で中央寄せするために追加 */
+    justify-content: center;
+    align-items: flex-start; /* 画像を上揃えにする */
+}
+
+/* 画像自体のスタイル */
+.content-img img {
+    width: auto;          /* 横幅はなりゆき（自動）にする */
+    max-width: 100%;      /* ただし枠（300px）からはみ出さない */
+    height: auto;         /* アスペクト比を維持 */
+    max-height: 350px;    /* 【重要】高さを350px程度に制限する */
+    object-fit: contain;  /* 画像全体が収まるように表示 */
+    border-radius: 8px;
+    background-color: #f9f9f9; /* 画像が小さい場合の背景色（薄いグレー） */
+    border: 1px solid #eee;
+}
+
+.content-desc {
+    flex: 1; /* 残りの幅を埋める */
+    min-width: 300px; /* 狭くなりすぎないように */
+}
+
+/* リンクボタン */
+.btn-link {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-right: 10px;
+    background-color: #2c3e50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.btn-link:hover {
+    background-color: #34495e;
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+    .publication-item, .project-content {
+        flex-direction: column; /* 縦並びにする */
+    }
+    
+    .content-img {
+        flex: auto;
+        width: 100%; /* 横幅いっぱいに */
+        margin-bottom: 10px;
+    }
+
+    .btn-link {
+        display: block;
+        margin-bottom: 10px;
+        text-align: center;
+        margin-right: 0;
+    }
+}
+
+/* --- スキルタグのスタイル --- */
+.skill-tag {
+    background-color: #e8f4fc; /* 薄い青背景 */
+    color: #2980b9;            /* 青文字 */
+    padding: 5px 12px;
+    border-radius: 15px;       /* 丸みをつける */
+    font-size: 0.9em;
+    border: 1px solid #b3d7f2;
+    font-weight: 500;
+}
+
+/* --- スキルリストのスタイル --- */
+.skill-item {
+    background-color: #fff;
+    border-bottom: 1px dotted #ccc;
+    padding: 8px 0;
+    color: #555;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+}
+
+.skill-item:before {
+    content: "✔"; /* チェックマークなど */
+    margin-right: 10px;
+    color: #2ecc71; /* 緑色 */
+    font-weight: bold;
+}
+
+.skill-item:last-child {
+    border-bottom: none;
+}
