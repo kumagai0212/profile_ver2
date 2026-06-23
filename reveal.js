@@ -80,6 +80,16 @@ const typeBootTerminal = () => {
     code.textContent = "";
     code.appendChild(cursor);
 
+    // Aim for the whole boot sequence to finish in ~3s, regardless of
+    // how many characters the (localized) terminal text contains.
+    const startDelay = 300;
+    const typingBudget = 2700;
+    const totalChars = segments.reduce(
+        (sum, segment) => sum + segment.text.length,
+        0
+    );
+    const perChar = typingBudget / Math.max(totalChars, 1);
+
     let segIndex = 0;
     let charIndex = 0;
     let currentSpan = null;
@@ -107,8 +117,7 @@ const typeBootTerminal = () => {
             code.insertBefore(currentSpan, cursor);
         }
 
-        const char = segment.text[charIndex];
-        currentSpan.textContent += char;
+        currentSpan.textContent += segment.text[charIndex];
         charIndex += 1;
 
         if (charIndex >= segment.text.length) {
@@ -117,11 +126,13 @@ const typeBootTerminal = () => {
             currentSpan = null;
         }
 
-        const delay = char === "\n" ? 260 : 30 + Math.random() * 45;
+        // Slight per-character jitter for a human feel, but the average
+        // stays at perChar so the total duration lands near the budget.
+        const delay = perChar * (0.7 + Math.random() * 0.6);
         window.setTimeout(typeNext, delay);
     };
 
-    window.setTimeout(typeNext, 450);
+    window.setTimeout(typeNext, startDelay);
 };
 
 typeBootTerminal();
